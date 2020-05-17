@@ -1,28 +1,30 @@
 # notes
 
-LAB - Class 01
-Project: Notesy
-Author: Sondos Alayyan
-Links and Resources
-[submission PR]()
+# LAB - Class 01
+- Project: Notesy
+- Author: Sondos Alayyan
+## Links and Resources
+[submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/2)
 
-travis
+## Documentation
 
-front-end application
 
-Documentation
-jsdoc
+## Modules
+- note.js
+- input.js
 
-Modules
-pos.js
 
-Setup
-.env requirements (where applicable)
+## Setup
+- minimist 
+- estlint
 
-PORT - Number (I used 3030)
 
-How to initialize/run your application (where applicable) npm start End-point '/' Return boolean End-point '/docs' Return jsdoc
 
-How to use your library (where applicable) Tests How do you run tests? unit test: npm test lint test: npm run lint
+How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note") or (node index.js -add "the note") or (./index.js -a "the note")
 
-UML
+How to use your library (where applicable) Tests How do you run tests? 
+
+I use npm run lint to test the indentation errors(eslint)
+
+## UML
+![lab 01](./assest/lab01.jpeg)
