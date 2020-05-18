@@ -1,7 +1,11 @@
+#!/usr/bin/env node
 'use strict';
 
-const input = require('./lib/input');
-const note = require('./lib/notes');
 
-const option = new input();
-note.add(option);
+const Input = require('./lib/input');
+const Note = require('./lib/notes');
+
+const option = new Input();
+const result = new Note();
+result.excute(option);
+result.add(option);
