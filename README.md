@@ -34,7 +34,7 @@ I use npm run lint to test the indentation errors(eslint)
 - Project: Notesy
 - Author: Sondos Alayyan
 ## Links and Resources
-- [submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/3)
+- [submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/4)
 - [github action](https://github.com/sondos-401-advanced-javascript/notes/actions)
 
 
