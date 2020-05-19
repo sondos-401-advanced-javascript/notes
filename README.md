@@ -22,7 +22,9 @@
 - jest
 
 
-How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note") or (node index.js -add "the note").
+How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note" --category 'scool') or (node index.js --add "the note" --category 'scool').
+for the list data use (node index.js --list) or (node index.js --list 'category') to search by category.
+to delete note (node index.js --delete idofnote)
 
 How to use your library (where applicable) Tests How do you run tests? 
 
