@@ -10,7 +10,7 @@ const MONGOO_URI = 'mongodb://localhost:27017/notes';
 // connect the mongo
 mongoose.connect(MONGOO_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 const option = new Input();

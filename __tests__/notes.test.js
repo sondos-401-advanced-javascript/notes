@@ -43,8 +43,8 @@ describe('notes module',()=>{
     option.save(obj)
       .then(record =>{
         Object.keys(obj).forEach(key =>{
-
-          expect(record[key]).not.toEqual(obj[key]);
+          console.log('hh==',key);
+          expect(record[key]).not.toBe(obj[key]);
         });
       });
   });
@@ -75,14 +75,16 @@ describe('notes module',()=>{
   });
   it('delete item', ()=> {
     let obj = {action:'delete',payload:'5'};
-    option.save(obj)
-      .then(record => {
-        return option.delete(record)
-          .then(note => {
-            Object.keys(obj).forEach(key=> {
-              expect(note[key]).toEqual(note[key]);
-            });
-          });
+    option.delete(obj)
+      .then(() => {    
+        expect(console.log).toHaveBeenCalled();    
+      });
+  });
+  it('didn\'t delete item', ()=> {
+    let obj = {action:'add',payload:'5ec3e9309e75481176e50eb3'};
+    option.delete(obj)
+      .then(() => {    
+        expect(console.log).not.toHaveBeenCalled();    
       });
   });
 });
