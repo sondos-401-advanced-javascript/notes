@@ -1,40 +1,10 @@
 # notes
 
-# LAB - Class 01
+# LAB - Class 03
 - Project: Notesy
 - Author: Sondos Alayyan
 ## Links and Resources
-[submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/2)
-
-## Documentation
-
-
-## Modules
-- note.js
-- input.js
-
-
-## Setup
-- minimist 
-- estlint
-
-
-
-How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note") or (node index.js -add "the note") or (./index.js -a "the note")
-
-How to use your library (where applicable) Tests How do you run tests? 
-
-I use npm run lint to test the indentation errors(eslint)
-
-## UML
-![lab 01](./assest/lab01.jpeg)
-
-
-# LAB - Class 02
-- Project: Notesy
-- Author: Sondos Alayyan
-## Links and Resources
-- [submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/4)
+- [submission PR](https://github.com/sondos-401-advanced-javascript/notes/pull/6)
 - [github action](https://github.com/sondos-401-advanced-javascript/notes/actions)
 
 
@@ -52,7 +22,9 @@ I use npm run lint to test the indentation errors(eslint)
 - jest
 
 
-How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note") or (node index.js -add "the note") or (./index.js -a "the note")
+How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note" --category 'scool') or (node index.js --add "the note" --category 'scool').
+for the list data use (node index.js --list) or (node index.js --list 'category') to search by category.
+to delete note (node index.js --delete idofnote)
 
 How to use your library (where applicable) Tests How do you run tests? 
 
@@ -60,4 +32,4 @@ How to use your library (where applicable) Tests How do you run tests?
 - I use `npm test` to test poth modules note.js and input.js
 
 ## UML
-![lab 01](./assest/lab01.jpeg)
+![lab 01](./assest/lab02.jpg)
