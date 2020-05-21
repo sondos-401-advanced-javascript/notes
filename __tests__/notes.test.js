@@ -58,6 +58,7 @@ describe('notes module',()=>{
     option.valid(obj);
     expect(console.log).toHaveBeenCalledTimes(2);
   });
+
   //line 46
   it('save values',()=>{
     let obj = {action:'add',payload: 'save notes',category: 'life'};
@@ -70,31 +71,31 @@ describe('notes module',()=>{
 
   
   // line 25-27
-  it('not list all the items', ()=> {
-    let obj1 = {action:'list',payload:'school'};
-    option.list(obj1)
-      .then(() =>{
-        expect(console.log).toHaveBeenCalledTimes(5);    
-      }); 
-  });
+  // it('not list all the items', ()=> {
+  //   let obj1 = {action:'list',payload:'school'};
+  //   option.list(obj1)
+  //     .then(() =>{
+  //       expect(console.log).toHaveBeenCalledTimes(5);    
+  //     }); 
+  // });
   //line 33-35
-  it('list all the items', ()=> {
-    let obj = {action:'list',payload:''};
-    option.list(obj)
-      .then(() =>{
-        expect(console.log).toHaveBeenCalledTimes(4);
-      });    
-  });
+  // it('list all the items', ()=> {
+  //   let obj = {action:'list',payload:''};
+  //   option.list(obj)
+  //     .then(() =>{
+  //       expect(console.log).toHaveBeenCalledTimes(4);
+  //     });    
+  // });
  
   
   
   //line 53
-  it('delete item', ()=> {
-    let obj = {action:'delete',payload:'5ec3e9309e75481176e50eb3'};
-    option.delete(obj)
-      .then(() => {    
-        expect(console.log).toHaveBeenCalledTimes(6);    
-      });
-  });
+  // it('delete item', ()=> {
+  //   let obj = {action:'delete',payload:'5ec3e9309e75481176e50eb3'};
+  //   option.delete(obj)
+  //     .then(() => {    
+  //       expect(console.log).toHaveBeenCalledTimes(6);    
+  //     });
+  // });
   // mongoose.disconnect;
 });
