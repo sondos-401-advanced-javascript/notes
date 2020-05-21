@@ -2,89 +2,99 @@
 
 const Output = require('../lib/notes');
 require('@code-fellows/supergoose');
+// const mongoose = require('mongoose');
+// const MONGOO_URI = 'mongodb://localhost:27017/notes';
 const option = new Output();
 jest.spyOn(global.console,'log');
 
+//connect mongo
+// mongoose.connect(MONGOO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
 describe('notes module',()=>{
-  it('don\'t call the console if there is error in CLI',()=>{
+  //not
+  it('don\'t call the console if you not added',()=>{
     const obj={action:'', payload:'',category:''};
-    option.excute(obj);
+    option.add(obj);
     expect(console.log).not.toHaveBeenCalled();
   });
   it('will call console if there are note and CLI correct',()=>{
     const obj={action:'add', payload:'play',category:'school'};
-    option.excute(obj);
-    expect(console.log).toHaveBeenCalled();
+    option.valid(obj); 
+    expect(console.log).not.toHaveBeenCalled();
   });
-  it('dosent save values',()=>{
-    let obj = {action:'add',payload: 'save notes',category: ''};
+  it('dosen\'t save values',()=>{
+    let obj = {action:'add',payload: '',category: ''};
     option.save(obj)
-      .then(record =>{
-        Object.keys(obj).forEach(key =>{
-
-          expect(record[key]).not.toEqual(obj[key]);
-        });
-      });
-
-  });
-  it('save values',()=>{
-    let obj = {action:'add',payload: 'save notes',category: 'school'};
-    option.save(obj)
-      .then(record =>{
-        Object.keys(obj).forEach(key =>{
-
-          expect(record[key]).toEqual(obj[key]);
-        });
-      });
-
-  });
-  it('dosent save values',()=>{
-    let obj = {action:'add',payload: 'save notes',category: ''};
-    option.save(obj)
-      .then(record =>{
-        Object.keys(obj).forEach(key =>{
-          console.log('hh==',key);
-          expect(record[key]).not.toBe(obj[key]);
-        });
+      .then(() =>{
+        expect(console.log).not.toHaveBeenCalled();
       });
   });
-  it('list all the items', ()=> {
-    let obj = {action:'list',payload:undefined};
-    option.save(obj)
-      .then(record => {
-        return option.list(obj)
-          .then(note => {
-            Object.keys(obj).forEach(key=> {
-              expect(note[key]).toEqual(note[key]);
-            });
-          });
-      });
+  it('not list all the items', ()=> {
+    let obj1 = {action:'lt',payload:'life'};
+    option.list(obj1)
+      .then(() =>{
+        expect(console.log).not.toHaveBeenCalled();    
+      }); 
   });
-  it('list the category items', ()=> {
-    let obj = {action:'list',payload:'life'};
-    option.save(obj)
-      .then(record => {
-        return option.list(obj)
-          .then(note => {
-            Object.keys(obj).forEach(key=> {
-              expect(note[key]).toEqual(note[key]);
-            });
-          });
-      });
-
-  });
-  it('delete item', ()=> {
-    let obj = {action:'delete',payload:'5'};
-    option.delete(obj)
-      .then(() => {    
-        expect(console.log).toHaveBeenCalled();    
-      });
-  });
-  it('didn\'t delete item', ()=> {
+  it('un delete item', ()=> {
     let obj = {action:'add',payload:'5ec3e9309e75481176e50eb3'};
     option.delete(obj)
       .then(() => {    
         expect(console.log).not.toHaveBeenCalled();    
       });
   });
+  //call
+  it('if you add note',()=>{
+    const obj={action:'add', payload:'play',category:'school'};
+    option.add(obj);
+    expect(console.log).toHaveBeenCalled();
+  });
+  
+  it('will not call console if there are note and CLI correct',()=>{
+    const obj={action:'add', payload:'play',category:''};
+    option.valid(obj);
+    expect(console.log).toHaveBeenCalledTimes(2);
+  });
+  //line 46
+  it('save values',()=>{
+    let obj = {action:'add',payload: 'save notes',category: 'life'};
+    option.save(obj)
+      .then(() =>{
+        expect(console.log).toHaveBeenCalledTimes(3);
+      });
+  });
+  
+
+  
+  // line 25-27
+  it('not list all the items', ()=> {
+    let obj1 = {action:'list',payload:'school'};
+    option.list(obj1)
+      .then(() =>{
+        expect(console.log).toHaveBeenCalledTimes(5);    
+      }); 
+  });
+  //line 33-35
+  it('list all the items', ()=> {
+    let obj = {action:'list',payload:''};
+    option.list(obj)
+      .then(() =>{
+        expect(console.log).toHaveBeenCalledTimes(4);
+      });    
+  });
+ 
+  
+  
+  //line 53
+  it('delete item', ()=> {
+    let obj = {action:'delete',payload:'5ec3e9309e75481176e50eb3'};
+    option.delete(obj)
+      .then(() => {    
+        expect(console.log).toHaveBeenCalledTimes(6);    
+      });
+  });
+  // mongoose.disconnect;
 });
