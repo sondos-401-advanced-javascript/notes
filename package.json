@@ -24,9 +24,11 @@
   "dependencies": {
     "@code-fellows/supergoose": "^1.0.2",
     "minimist": "^1.2.5",
+    "mongo-unit": "^2.0.1",
     "mongoose": "^5.9.15"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
     "eslint": "^7.0.0",
     "jest": "^26.0.1"
   }
