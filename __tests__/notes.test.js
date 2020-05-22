@@ -49,7 +49,7 @@ describe('service', () => {
   it('will not call console if there are note and CLI correct', () => {
     const obj = { action: 'add', payload: 'play', category: '' };
     option.valid(obj);
-    expect(console.log).toHaveBeenCalledTimes(4);
+    expect(console.log).toHaveBeenCalledTimes(3);
   });
 
   //line 46
