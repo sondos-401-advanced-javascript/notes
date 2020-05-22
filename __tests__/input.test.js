@@ -20,18 +20,16 @@ class valid{
       option.payload;
       expect(console.log).toHaveBeenCalled();
     });
-    
     return false;
   }
+  
   goodInput(){
     it('return add if using this (--add,-add,-a)',()=>{
       expect(option.actions('--add')).toEqual('add');
-      expect(option.actions('-add')).toEqual('add');
       expect(option.actions('-a')).toEqual('add');
-      expect(option.actions('-list')).toEqual('list');
       expect(option.actions('--list')).toEqual('list');
       expect(option.actions('--delete')).toEqual('delete');
-      expect(option.actions('-delete')).toEqual('delete');
+      expect(option.actions('--update')).toEqual('update');
     });
     it('display the note when the note is written',()=>{
       let note = 'Watch movie';
