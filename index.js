@@ -15,7 +15,8 @@ mongoose.connect(MONGOO_URI, {
 
 const option = new Input();
 const result = new Note();
-// result.excute(option);
+
+result.add(option);
 result.valid(option);
 result.save(option)
   .then(()=>result.list(option))
