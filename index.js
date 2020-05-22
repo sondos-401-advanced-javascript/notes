@@ -16,11 +16,10 @@ mongoose.connect(MONGOO_URI, {
 const option = new Input();
 const result = new Note();
 result.valid(option);
+result.add(option);
 mongoose.set('useFindAndModify', false);
-
 switch (option.action) {
 case 'add':
-  result.add(option);
   result.save(option)
     .then(mongoose.disconnect);
   break;
@@ -36,5 +35,9 @@ case 'update':
   result.update(option)
     .then(mongoose.disconnect);
   break;
+default:
+  mongoose.disconnect;
+  break;
 }
+
 
