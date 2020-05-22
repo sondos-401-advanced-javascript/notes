@@ -25,6 +25,7 @@
 How to initialize/run your application (where applicable) by using this command line (node index.js -a "the note" --category 'scool') or (node index.js --add "the note" --category 'scool').
 for the list data use (node index.js --list) or (node index.js --list 'category') to search by category.
 to delete note (node index.js --delete idofnote)
+- **I added the update to update the note text by using this command line `node index.js --update 'id' --text 'your new note text'`
 
 How to use your library (where applicable) Tests How do you run tests? 
 
