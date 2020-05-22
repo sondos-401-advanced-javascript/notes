@@ -15,10 +15,29 @@ mongoose.connect(MONGOO_URI, {
 
 const option = new Input();
 const result = new Note();
-
-result.add(option);
 result.valid(option);
-result.save(option)
-  .then(()=>result.list(option))
-  .then(()=>result.delete(option))
-  .then(mongoose.disconnect);
+result.add(option);
+mongoose.set('useFindAndModify', false);
+switch (option.action) {
+case 'add':
+  result.save(option)
+    .then(mongoose.disconnect);
+  break;
+case 'list':
+  result.list(option)
+    .then(mongoose.disconnect);
+  break;
+case 'delete':
+  result.delete(option)
+    .then(mongoose.disconnect);
+  break;
+case 'update':
+  result.update(option)
+    .then(mongoose.disconnect);
+  break;
+default:
+  mongoose.disconnect;
+  break;
+}
+
+
