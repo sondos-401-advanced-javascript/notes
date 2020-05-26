@@ -57,6 +57,5 @@ describe('notes-collection Model', () => {
             expect(note).toBeUndefined();
           });
       });
-
   });
 });
