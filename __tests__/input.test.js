@@ -26,7 +26,9 @@ class valid{
   goodInput(){
     it('return add if using this (--add,-add,-a)',()=>{
       expect(option.actions('--add')).toEqual('add');
+      expect(option.actions('-add')).toEqual('add');
       expect(option.actions('-a')).toEqual('add');
+      expect(option.actions('--a')).toEqual('add');
       expect(option.actions('--list')).toEqual('list');
       expect(option.actions('--delete')).toEqual('delete');
       expect(option.actions('--update')).toEqual('update');
